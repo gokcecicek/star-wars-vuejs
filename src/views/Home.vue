@@ -1,11 +1,11 @@
 <template>
 <div>
     <div id="axios-get">
-    <ul v-for="post of starships" :key="post.id" >
-      <div @click="getCardDetail(post.url)" ><img src="../assets/starship.jpg" alt="starship image"/></div>
-      <p>{{post.name}}</p>
-      <p>{{post.model}}</p>
-      <p>{{post.hyperdrive_rating}}</p>
+    <ul v-for="starship of starships" :key="starship.id" >
+      <div @click="getCardDetail(starship.url)" ><img src="../assets/starship.jpg" alt="starship image"/></div>
+      <p>{{starship.name}}</p>
+      <p>{{starship.model}}</p>
+      <p>{{starship.hyperdrive_rating}}</p>
       
     </ul>
     <ul v-if="errors && errors.length">
@@ -19,7 +19,7 @@
 
 <script>
 import axios from "axios";
-
+import { swapi } from "../services/API";
 
 export default {
 
@@ -35,7 +35,7 @@ export default {
     methods: {
       getPosts() {
         axios
-          .get("https://swapi.dev/api/starships")
+          this.starships = swapi.getStarships()
           .then(response => (this.starships = response.data.results))
           .catch(error => {
             console.log("axios error", error)

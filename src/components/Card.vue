@@ -18,7 +18,7 @@
 
 <script>
 import axios from "axios";
-
+import { swapi } from "../services/API";
 
 export default {
 
@@ -36,7 +36,7 @@ export default {
       getPosts() {
         const starshipId = this.$route.params.id;
         axios
-          .get(`https://swapi.dev/api/starships/${starshipId}`)
+          this.starship = swapi.getStarshipById(starshipId)
           .then(response => this.starship = response.data)
           .catch(error => {
             console.log("axios error", error)
