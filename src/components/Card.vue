@@ -1,5 +1,6 @@
 <template>
 <div>
+<!-- Starship detail card informations -->
 <div class="starship-card-detail">
     <img src="../assets/starship.jpg" alt="starship image"/>
     <p><strong>Name:</strong> {{starship.name}}</p>
@@ -28,14 +29,16 @@ export default {
     created() {
       this.getPosts();
     },
+
     data() {
       return {
         starship: [],
         errors: []
       };
     },
+
     methods: {
-  
+      //Fetch starship informations by id from api
       getPosts() {
         const starshipId = this.$route.params.id;
         axios
@@ -45,8 +48,10 @@ export default {
             console.log("axios error", error)
           })
       },
-       backHomePage: function() {     
-           this.$router.push({ name:"home"});  
+      
+      //Back to the main page function
+      backHomePage: function() {     
+        this.$router.push({ name:"home"});  
       }
     }
 };

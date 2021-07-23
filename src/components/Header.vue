@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-  </div>
+<!-- Header of the the page -->
+<div class="header"></div>
 </template>
 
 <script>

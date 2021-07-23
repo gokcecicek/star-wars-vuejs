@@ -1,4 +1,5 @@
 <template>
+<!-- Footer of the page -->
   <div class="footer">
     <p>
       <b>2021</b> - Built with <span>❤</span> Vue - <strong>by gokcecicek & koray izlimek</strong>

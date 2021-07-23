@@ -1,6 +1,15 @@
-# vue-swapi-project
+# STAR WARS API APP WITH VUE ⚔️
+This app built with Vue using data from [Star Wars API](https://swapi.dev/documentation)
 
-## Project setup
+## Project setup 
+
+### Getting started with
+```
+git clone
+```
+
+### Keep going with
+
 ```
 npm install
 ```

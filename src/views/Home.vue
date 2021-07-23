@@ -1,8 +1,10 @@
 <template>
 <div>
-    <input v-model="search" type="text" class="searchbar" placeholder="May the force be with you.." v-on:keyup.enter="searchData">
-    <button v-on:click="searchData">Search</button>
-    <div>
+  <!-- Searchbar part-->
+  <input v-model="search" type="text" class="searchbar" placeholder="May the force be with you.." v-on:keyup.enter="searchData">
+  <button v-on:click="searchData">Search</button>
+  <!-- Starship cards on the homepage -->
+  <div>
     <ul v-for="starship of starships" :key="starship.id" class="starship-card">
       <div @click="getCardDetail(starship.url)"><img src="../assets/starship.jpg" alt="starship image"/></div>
       <p><strong>Name: </strong>{{starship.name}}</p>
@@ -28,6 +30,7 @@ export default {
     created() {
       this.getPosts ();
     },
+
     data() {
       return {
         starships: [],
@@ -36,6 +39,7 @@ export default {
       };
     },
 
+    //Fetch starships from api
     methods: {
       getPosts() {
         axios
@@ -45,10 +49,14 @@ export default {
             console.log("axios error", error)
           });
       },
+      
+      //Getting details of a starship
       getCardDetail(url) {
           let id = url.split('starships/')[1]; 
           this.$router.push(`${id}`);
       },
+
+      //Search starship according to model
       searchData() {
         axios 
           this.starships = swapi.getModel(this.search)
