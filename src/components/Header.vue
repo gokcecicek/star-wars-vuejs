@@ -1,15 +1,12 @@
 <template>
   <div class="header">
-    <h1>SWAPI HEADER</h1>
   </div>
 </template>
 
 <script>
+import "../assets/style.css";
     export default {
         name: "Header"
     }
 </script>
 
-<style lang="scss">
-
-</style>

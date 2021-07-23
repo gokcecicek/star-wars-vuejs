@@ -1,13 +1,13 @@
 <template>
 <div>
-    <input v-model="search" type="text" class="input is-rounded" v-on:keyup.enter="searchData">
+    <input v-model="search" type="text" class="searchbar" placeholder="May the force be with you.." v-on:keyup.enter="searchData">
     <button v-on:click="searchData">Search</button>
-    <div id="axios-get">
-    <ul v-for="starship of starships" :key="starship.id">
-      <div @click="getCardDetail(starship.url)" ><img src="../assets/starship.jpg" alt="starship image"/></div>
-      <p>{{starship.name}}</p>
-      <p>{{starship.model}}</p>
-      <p>{{starship.hyperdrive_rating}}</p>
+    <div>
+    <ul v-for="starship of starships" :key="starship.id" class="starship-card">
+      <div @click="getCardDetail(starship.url)"><img src="../assets/starship.jpg" alt="starship image"/></div>
+      <p><strong>Name: </strong>{{starship.name}}</p>
+      <p><strong>Model: </strong>{{starship.model}}</p>
+      <p><strong>Hyperdrive rating: </strong>{{starship.hyperdrive_rating}}</p>
     </ul>
     <ul v-if="errors && errors.length">
       <li v-for="(error, index) of errors" :key="index">
@@ -21,6 +21,7 @@
 <script>
 import axios from "axios";
 import { swapi } from "../services/API";
+import "../assets/style.css";
 
 export default {
 

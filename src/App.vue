@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <Header/>
     <main id="main">
       <router-view />
@@ -12,6 +12,7 @@
 
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import "./assets/style.css";
 
 export default {
   name: 'App',

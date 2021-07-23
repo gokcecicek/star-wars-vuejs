@@ -1,10 +1,13 @@
 <template>
   <div class="footer">
-    <h1>SWAPI Footer</h1>
+    <p>
+      <b>2021</b> - Built with <span>❤</span> Vue - <strong>by gokcecicek & koray izlimek</strong>
+    </p>
   </div>
 </template>
 
 <script>
+import "../assets/style.css";
     export default {
         name: "Footer"
     }
