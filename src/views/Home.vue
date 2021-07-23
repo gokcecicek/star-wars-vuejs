@@ -1,12 +1,13 @@
 <template>
 <div>
+    <input v-model="search" type="text" class="input is-rounded" v-on:keyup.enter="searchData">
+    <button v-on:click="searchData">Search</button>
     <div id="axios-get">
-    <ul v-for="starship of starships" :key="starship.id" >
+    <ul v-for="starship of starships" :key="starship.id">
       <div @click="getCardDetail(starship.url)" ><img src="../assets/starship.jpg" alt="starship image"/></div>
       <p>{{starship.name}}</p>
       <p>{{starship.model}}</p>
       <p>{{starship.hyperdrive_rating}}</p>
-      
     </ul>
     <ul v-if="errors && errors.length">
       <li v-for="(error, index) of errors" :key="index">
@@ -24,14 +25,16 @@ import { swapi } from "../services/API";
 export default {
 
     created() {
-      this.getPosts();
+      this.getPosts ();
     },
     data() {
       return {
         starships: [],
-        errors: []
+        errors: [],
+        search: "",
       };
     },
+
     methods: {
       getPosts() {
         axios
@@ -42,9 +45,16 @@ export default {
           });
       },
       getCardDetail(url) {
-          console.log("url");
           let id = url.split('starships/')[1]; 
           this.$router.push(`${id}`);
+      },
+      searchData() {
+        axios 
+          this.starships = swapi.getModel(this.search)
+          .then(response => (this.starships = response.data.results))
+          .catch(error => {
+            console.log("axios error", error)
+          });
       }
     }
 };
