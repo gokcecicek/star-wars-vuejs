@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
 });
 
 export const swapi = {
-    getStarships: () => axiosInstance.get("/starships/"),
+    getStarships: (page) => axiosInstance.get(`/starships/?page=${page}`),
     getStarshipById: (starshipId) => axiosInstance.get(`/starships/${starshipId}`),
     getModel: (val) => axiosInstance.get(`/starships/?search=${val}`)
 }

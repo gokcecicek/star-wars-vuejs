@@ -1,9 +1,9 @@
 <template>
-<div>
+<div class="starship-detail-page">
 <!-- Starship detail card informations -->
 <div class="starship-card-detail">
-    <img src="../assets/starship.jpg" alt="starship image"/>
-    <p><strong>Name:</strong> {{starship.name}}</p>
+    <img src="../assets/images/starship.jpg" alt="starship image"/>
+    <p><strong>{{starship.name}}</strong></p>
     <p><strong>Model:</strong> {{starship.model}}</p>
     <p><strong>Hyperdrive rating:</strong> {{starship.hyperdrive_rating}}</p>
     <p><strong>Manufacturer:</strong> {{starship.manufacturer}}</p>
@@ -16,13 +16,16 @@
     <p><strong>Crew:</strong> {{starship.crew}}</p>
 </div>
 <button @click="backHomePage()">Back to main</button>
+<div class="starship-card-detail-img">
+  <img src="../assets/images/darth-vader.png" alt="dart vader"/>
+</div>
 </div>
 </template>
 
 <script>
 import axios from "axios";
 import { swapi } from "../services/API";
-import "../assets/style.css";
+import "../assets/scss/style.scss";
 
 export default {
 

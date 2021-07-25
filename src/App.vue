@@ -12,14 +12,22 @@
 
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import "./assets/style.css";
+import "./assets/scss/style.scss";
 
 export default {
   name: 'App',
   components: {
     Header,
     Footer
-  }
+  },
+  watch: {
+        $route: {
+            immediate: true,
+            handler() {
+                document.title ='SWAPI';
+            }
+        },
+    }
 }
 </script>
 

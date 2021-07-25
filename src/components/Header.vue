@@ -1,12 +1,19 @@
 <template>
 <!-- Header of the the page -->
-<div class="header"></div>
+<div @click="backHomePage()" class="header">
+    <img src="../assets/images/header.png" alt="starship image"/>
+</div>
 </template>
 
 <script>
-import "../assets/style.css";
+import "../assets/scss/style.scss";
     export default {
-        name: "Header"
+        name: "Header",
+        methods: {
+            backHomePage: function() {     
+                this.$router.push({ name:"home"});  
+            }
+        }
     }
 </script>
 
